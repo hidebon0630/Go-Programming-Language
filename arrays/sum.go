@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 func Sum(numbers []int) int {
 	sum := 0
 	for _, number := range numbers {
@@ -9,6 +11,7 @@ func Sum(numbers []int) int {
 }
 
 func SumAll(numbersToSum ...[]int) []int {
+	log.Println(numbersToSum)
 	var sums []int
 	for _, numbers := range numbersToSum {
 		sums = append(sums, Sum(numbers))
@@ -19,7 +22,7 @@ func SumAll(numbersToSum ...[]int) []int {
 func SumAllTails(numbersToSum ...[]int) []int {
 	var sums []int
 	for _, numbers := range numbersToSum {
-		if numbers == 0 {
+		if len(numbers) == 0 {
 			sums = append(sums, 0)
 		} else {
 			tail := numbers[1:]
